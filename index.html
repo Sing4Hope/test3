@@ -2,173 +2,80 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kennemerland Surveillance</title>
   <style>
     body {
-      background: #000;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      line-height: 1.6;
     }
-    header {
-      background: #111;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
+    a {
       color: #fff;
       text-decoration: none;
-      background: #fff;
-      color: #000;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: bold;
+      margin: 0 1rem;
     }
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
+    a:hover {
+      text-decoration: underline;
+    }
+    nav {
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
     section {
       margin-bottom: 2rem;
     }
-    h1, h2 {
-      color: #fff;
-    }
-    .diensten {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .dienst {
-      background: #111;
+    .mededeling {
+      background: #222;
       padding: 1rem;
-      border-radius: 8px;
-      flex: 1 1 180px;
-      text-align: center;
-      font-weight: bold;
-      box-shadow: 0 0 10px #333;
-    }
-    .mededeling-box {
-      background: #111;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #444;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .discord {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #5865F2;
-      padding: 10px 20px;
-      border-radius: 6px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .discord:hover {
-      background: #4752C4;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin-bottom: 10px;
+      border-left: 4px solid #fff;
+      margin-bottom: 2rem;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Kennemerland Surveillance</h1>
   <nav>
-    <a href="login.html">Inloggen</a>
+    <a href="index.html">Home</a> |
+    <a href="overons.html">Over Ons</a> |
+    <a href="diensten.html">Diensten</a> |
+    <a href="https://discord.gg/CqgYcHrg8P" target="_blank" rel="noopener noreferrer">Discord</a>
   </nav>
-</header>
 
-<main>
-  <section>
-    <h2>Wie zijn wij?</h2>
-    <p>Kennemerland Surveillance is een professionele roleplay-eenheid binnen Roblox. Wij bieden realistische simulaties van hulpdiensten met respect voor regels, structuur en samenwerking.</p>
-  </section>
+  <header>
+    <h1>Kennemerland Surveillance</h1>
+    <p>Welkom bij Kennemerland Surveillance, jouw betrouwbare partner in Roblox surveillance games. Wij bieden verschillende diensten aan om je game-ervaring veiliger en spannender te maken.</p>
+  </header>
 
   <section>
-    <h2>Onze Diensten</h2>
-    <div class="diensten">
-      <div class="dienst">ANBU</div>
-      <div class="dienst">Politie</div>
-      <div class="dienst">KMar</div>
-      <div class="dienst">Reddingsbrigade</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Laatste Mededeling</h2>
-    <div class="mededeling-box" id="mededelingBox">
-      <p id="mededelingText">Er is nog geen mededeling verzonden.</p>
-    </div>
-  </section>
-
-  <section style="text-align:center;">
-    <h2>Word lid van onze community</h2>
-    <a class="discord" href="https://discord.gg/CqgYcHrg8P" target="_blank">Join onze Discord</a>
-  </section>
-
-  <section>
-    <h2>Veelgestelde Vragen (FAQ)</h2>
+    <h2>Onze diensten</h2>
     <ul>
-      <li><strong>Q:</strong> Hoe word ik lid?<br><strong>A:</strong> Via onze sollicitatiepagina of Discord.</li>
-      <li><strong>Q:</strong> Zijn er regels?<br><strong>A:</strong> Ja! Zie het onderdeel 'Onze Regels'.</li>
-      <li><strong>Q:</strong> Kan ik zomaar roleplayen?<br><strong>A:</strong> Alleen als je bent toegelaten en een rol hebt.</li>
+      <li>ANBU</li>
+      <li>Politie</li>
+      <li>KMar</li>
+      <li>Reddingsbrigade</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Unban Verzoek</h2>
-    <p>Ben je geband maar denk je dat dit onterecht was? Klik hieronder om een unban-verzoek in te dienen.</p>
-    <a class="discord" href="https://discord.gg/CqgYcHrg8P" target="_blank">Unban Verzoek via Discord</a>
+  <section class="mededeling" id="mededeling">
+    <strong>Laatste mededeling:</strong><br />
+    <span id="mededeling-tekst">Laden...</span>
   </section>
 
-  <section>
-    <h2>Hoe Word Je Lid?</h2>
-    <p>Meld je aan via onze sollicitatiepagina of onze Discord. Je moet minimaal 13 jaar zijn en respectvol kunnen roleplayen.</p>
-  </section>
-
-  <section>
-    <h2>Onze Regels</h2>
-    <ul>
-      <li>❌ Geen VDM / RDM</li>
-      <li>❌ Geen disrespect naar staff of andere leden</li>
-      <li>✅ Realistische roleplay verplicht</li>
-      <li>✅ Staff heeft altijd het laatste woord</li>
-    </ul>
-  </section>
-</main>
-
-<footer>
-  &copy; 2025 Kennemerland Surveillance
-</footer>
-
-<script>
-  fetch('mededeling.json')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('mededelingText').textContent = data.tekst;
-    })
-    .catch(error => {
-      console.error("Fout bij het laden van de mededeling:", error);
-    });
-</script>
-
+  <script>
+    // Laad mededeling uit mededeling.json
+    fetch('mededeling.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('mededeling-tekst').textContent = data.tekst || 'Geen mededeling';
+      })
+      .catch(() => {
+        document.getElementById('mededeling-tekst').textContent = 'Kan mededeling niet laden.';
+      });
+  </script>
 </body>
 </html>
