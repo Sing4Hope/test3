@@ -6,8 +6,159 @@
   <title>Kennemerland Surveillance</title>
   <link rel="icon" type="image/png" href="favicon.ico" />
   <style>
-    /* (alle CSS uit je voorbeeld blijft hetzelfde) */
-    /* ... */
+    /* Stijl (zoals eerder afgesproken) */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #eee;
+      line-height: 1.6;
+    }
+    nav {
+      background: #000;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
+    nav img {
+      height: 40px;
+      margin-right: 20px;
+    }
+    nav .links a {
+      color: #eee;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav .links a:hover {
+      color: #7289da;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 0 0 10px #7289da;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    main.container {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .intro {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 280px;
+      border-radius: 6px;
+      box-shadow: 0 0 15px #222;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #7289da;
+    }
+    .why-choose {
+      background: #222;
+      padding: 25px 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .why-choose h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #7289da;
+    }
+    .why-choose ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+    .why-choose ul li {
+      padding: 6px 0;
+      border-bottom: 1px solid #444;
+    }
+    .mededeling {
+      background: #111;
+      border: 2px solid #7289da;
+      padding: 20px;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      color: #7289da;
+      min-height: 50px;
+    }
+    .discord-btn {
+      display: inline-block;
+      background: #7289da;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 5px 10px rgba(114, 137, 218, 0.5);
+      transition: background-color 0.3s ease;
+    }
+    .discord-btn:hover {
+      background: #5b6eae;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #555;
+      box-shadow: inset 0 1px 5px rgba(255,255,255,0.05);
+    }
+    /* Laadanimatie */
+    #loader-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(17,17,17,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    #loader-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .spinner {
+      border: 6px solid #ddd;
+      border-top: 6px solid #7289da;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
   </style>
 </head>
 <body>
@@ -38,10 +189,9 @@
     </section>
 
     <section class="gallery" aria-label="Screenshots van de game">
-      <img src="https://i.imgur.com/zRWK2fY.jpg" alt="Politievoertuig in actie" />
-      <img src="https://i.imgur.com/ITxE0Sk.jpg" alt="Brandweer aan het werk" />
-      <img src="https://i.imgur.com/vKc8X6J.jpg" alt="Ambulance hulpverlening" />
-      <img src="https://i.imgur.com/aTFj3nB.jpg" alt="Reddingsbrigade in actie" />
+      <img src="afbeelding1.png" alt="Screenshot 1" />
+      <img src="afbeelding2.png" alt="Screenshot 2" />
+      <img src="afbeelding3.png" alt="Screenshot 3" />
     </section>
 
     <section class="why-choose">
@@ -66,14 +216,12 @@
   </footer>
 
   <script>
-    // Laadanimatie bij laden
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader-overlay');
       loader.classList.add('hidden');
       setTimeout(() => loader.style.display = 'none', 500);
     });
 
-    // Laadanimatie bij pagina wisselen (behalve externe links en mailto)
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', (e) => {
         const url = link.getAttribute('href');
@@ -81,9 +229,8 @@
           url.startsWith('http') ||
           url.startsWith('mailto:') ||
           url.startsWith('#') ||
-          url === '' 
+          url === ''
         ) {
-          // Externe of anchors niet onderscheppen
           return;
         }
         e.preventDefault();
@@ -91,11 +238,10 @@
         loader.style.display = 'flex';
         setTimeout(() => {
           window.location.href = url;
-        }, 500); // wachten tot animatie bijna klaar is
+        }, 500);
       });
     });
 
-    // Mededeling live laden uit mededeling.json
     async function laadMededeling() {
       try {
         const response = await fetch('mededeling.json', {cache: "no-store"});
