@@ -2,41 +2,95 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kennemerland Surveillance</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <style>
     body {
       background-color: #111;
       color: #eee;
       font-family: Arial, sans-serif;
-      margin: 2rem;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
-    a {
+
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 2px solid #333;
+    }
+
+    nav img {
+      height: 50px;
+    }
+
+    nav .links a {
       color: #fff;
       text-decoration: none;
       margin: 0 1rem;
     }
-    a:hover {
+
+    nav .links a:hover {
       text-decoration: underline;
     }
-    nav {
-      margin-bottom: 2rem;
+
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-    header h1 {
+
+    h1 {
+      color: #fff;
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    section {
-      margin-bottom: 2rem;
+
+    h2 {
+      margin-top: 2rem;
+      color: #fff;
     }
+
+    .diensten {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .dienst {
+      flex: 1 1 200px;
+      background: #1a1a1a;
+      border-left: 5px solid gray;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
+    .anbu { border-color: #555; }
+    .politie { border-color: lightblue; }
+    .kmar { border-color: darkblue; }
+    .ambulance { border-color: yellow; }
+    .brandweer { border-color: red; }
+    .reddingsbrigade { border-color: orange; }
+
     .mededeling {
       background: #222;
       padding: 1rem;
-      border-left: 4px solid #fff;
-      margin-bottom: 2rem;
-      font-style: italic;
+      margin-top: 2rem;
+      border-left: 5px solid #ccc;
+      border-radius: 5px;
     }
-    /* Laadanimatie overlay */
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
     #loader-overlay {
       position: fixed;
       top: 0;
@@ -51,6 +105,7 @@
       opacity: 1;
       transition: opacity 0.5s ease;
     }
+
     .spinner {
       border: 8px solid #333;
       border-top: 8px solid #eee;
@@ -59,10 +114,12 @@
       height: 60px;
       animation: spin 1s linear infinite;
     }
+
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
     #loader-overlay.hidden {
       opacity: 0;
       pointer-events: none;
@@ -76,76 +133,78 @@
   </div>
 
   <nav>
-    <a href="index.html">Home</a> |
-    <a href="overons.html">Over Ons</a> |
-    <a href="diensten.html">Diensten</a> |
-    <a href="https://discord.gg/CqgYcHrg8P" target="_blank" rel="noopener noreferrer">Discord</a>
+    <img src="mainlogo.png" alt="Logo Kennemerland Surveillance" />
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="overons.html">Over Ons</a>
+      <a href="diensten.html">Diensten</a>
+      <a href="faq.html">FAQ</a>
+      <a href="unban.html">Unban Appeal</a>
+      <a href="login.html">Login</a>
+      <a href="https://discord.gg/CqgYcHrg8P" target="_blank">Discord</a>
+    </div>
   </nav>
 
-  <header>
+  <div class="container">
     <h1>Kennemerland Surveillance</h1>
-    <p>Welkom bij Kennemerland Surveillance, jouw betrouwbare partner in Roblox surveillance games. Wij bieden verschillende diensten aan om je game-ervaring veiliger en spannender te maken.</p>
-  </header>
 
-  <section>
-    <h2>Onze diensten</h2>
-    <ul>
-      <li>ANBU</li>
-      <li>Politie</li>
-      <li>KMar</li>
-      <li>Reddingsbrigade</li>
-    </ul>
-  </section>
+    <p>Welkom bij Kennemerland Surveillance, de realistische Roblox roleplay-game waar veiligheid en samenwerking centraal staan. Sluit je aan bij een van onze hulpdiensten en beleef spannende scenario’s!</p>
 
-  <section class="mededeling" id="mededeling">
-    <strong>Laatste mededeling:</strong><br />
-    <span id="mededeling-tekst">Laden...</span>
-  </section>
+    <h2>Onze Diensten</h2>
+    <div class="diensten">
+      <div class="dienst politie"><strong>Politie</strong><br>Handhaaft de orde en grijpt in bij noodsituaties.</div>
+      <div class="dienst kmar"><strong>Koninklijke Marechaussee</strong><br>Beveiligt luchthavens en grensgebieden.</div>
+      <div class="dienst ambulance"><strong>Ambulance</strong><br>Biedt medische hulp bij incidenten.</div>
+      <div class="dienst brandweer"><strong>Brandweer</strong><br>Blust branden en redt mensen in gevaar.</div>
+      <div class="dienst reddingsbrigade"><strong>Reddingsbrigade</strong><br>Actief bij waterongevallen en reddingsacties.</div>
+    </div>
+
+    <h2>Laatste Mededeling</h2>
+    <div class="mededeling" id="mededeling">
+      Laden...
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Kennemerland Surveillance. Alle rechten voorbehouden.
+  </footer>
 
   <script>
-    // Verberg loader als pagina geladen is
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader-overlay');
       loader.classList.add('hidden');
       setTimeout(() => loader.style.display = 'none', 500);
     });
 
-    // Laad mededeling uit mededeling.json
-    fetch('mededeling.json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('mededeling-tekst').textContent = data.tekst || 'Geen mededeling';
-      })
-      .catch(() => {
-        document.getElementById('mededeling-tekst').textContent = 'Kan mededeling niet laden.';
-      });
-
-    // Laadanimatie bij intern linken
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', (e) => {
         const url = link.getAttribute('href');
-
         if (
           url.startsWith('http') ||
           url.startsWith('mailto:') ||
           url.startsWith('#') ||
           url.startsWith('https://') ||
           url.startsWith('//')
-        ) {
-          return; // externe link, niks doen
-        }
+        ) return;
 
         e.preventDefault();
-
         const loader = document.getElementById('loader-overlay');
         loader.style.display = 'flex';
         loader.classList.remove('hidden');
-
         setTimeout(() => {
           window.location.href = url;
         }, 700);
       });
     });
+
+    fetch('mededeling.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('mededeling').textContent = data.mededeling || "Er is momenteel geen mededeling.";
+      })
+      .catch(() => {
+        document.getElementById('mededeling').textContent = "Kan mededeling niet laden.";
+      });
   </script>
 </body>
 </html>
