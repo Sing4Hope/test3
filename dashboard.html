@@ -2,111 +2,71 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard - Kennemerland Surveillance</title>
+  <title>Dashboard - Mededeling Verzenden</title>
   <style>
     body {
-      background: #000;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-    }
-    header {
       background: #111;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px #222;
-    }
-    nav a {
-      color: #eee;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
+      color: #fff;
+      font-family: Arial, sans-serif;
       padding: 2rem;
-      max-width: 700px;
-      margin: auto;
+    }
+    form {
+      background: #222;
+      padding: 2rem;
+      border-radius: 10px;
     }
     textarea {
       width: 100%;
       height: 100px;
-      padding: 10px;
-      border-radius: 8px;
       border: none;
-      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
     }
     button {
-      margin-top: 10px;
-      padding: 10px 20px;
       background: #fff;
       color: #000;
-      font-weight: bold;
+      padding: 10px 20px;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-    }
-    .success {
-      color: lightgreen;
-      margin-top: 1rem;
-    }
-    footer {
-      text-align: center;
-      color: #666;
-      padding: 1rem;
-      margin-top: 3rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+  <h1>Dashboard</h1>
+  <form id="mededelingForm">
+    <label for="tekst">Nieuwe Mededeling:</label>
+    <textarea id="tekst" required></textarea>
+    <button type="submit">Verzenden</button>
+  </form>
 
-<header>
-  <h1>Kennemerland Surveillance</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="nieuws.html">Nieuws</a>
-    <a href="staff.html">Staff</a>
-    <a href="sollicitatie.html">Sollicitatie</a>
-    <a href="https://discord.gg/CqgYcHrg8P" target="_blank">Discord</a>
-    <a href="#" onclick="logout(event)">Logout</a>
-  </nav>
-</header>
+  <p id="status"></p>
 
-<main>
-  <h2>Stuur een mededeling naar de Homepagina</h2>
-  <textarea id="mededelingInput" placeholder="Typ je mededeling hier..."></textarea>
-  <button onclick="verzendMededeling()">Verzend Mededeling</button>
-  <p class="success" id="successMessage" style="display:none;">✅ Mededeling verzonden!</p>
-</main>
+  <script>
+    const form = document.getElementById('mededelingForm');
+    const status = document.getElementById('status');
 
-<footer>
-  &copy; 2025 Kennemerland Surveillance
-</footer>
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const tekst = document.getElementById('tekst').value;
 
-<script>
-  function verzendMededeling() {
-    const input = document.getElementById('mededelingInput').value.trim();
-    if (input) {
-      localStorage.setItem('laatsteMededeling', input);
-      document.getElementById('successMessage').style.display = 'block';
-      document.getElementById('mededelingInput').value = '';
-    } else {
-      alert("Typ eerst een mededeling.");
-    }
-  }
+      const response = await fetch('/.netlify/functions/updateMededeling', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tekst }),
+      });
 
-  function logout(e) {
-    e.preventDefault();
-    alert("Uitgelogd!");
-    window.location.href = "index.html";
-  }
-</script>
+      const result = await response.json();
 
+      if (result.success) {
+        status.textContent = "✅ Mededeling opgeslagen!";
+      } else {
+        status.textContent = "❌ Fout bij opslaan!";
+      }
+    });
+  </script>
 </body>
 </html>
