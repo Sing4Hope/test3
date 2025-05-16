@@ -11,26 +11,53 @@
       margin: 2rem;
       line-height: 1.6;
     }
+
     a {
       color: #fff;
       text-decoration: none;
       margin: 0 1rem;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     nav {
       margin-bottom: 2rem;
     }
+
     h1, h2 {
       color: #fff;
     }
+
     section {
       margin-bottom: 2rem;
       background: #1a1a1a;
       padding: 1rem;
       border-left: 5px solid #444;
     }
+
+    /* Specifieke kleuren per dienst */
+    .kmar {
+      border-left-color: #003366; /* Donkerblauw */
+    }
+
+    .politie {
+      border-left-color: #3399ff; /* Lichtblauw */
+    }
+
+    .ambulance {
+      border-left-color: #ffcc00; /* Geel */
+    }
+
+    .brandweer {
+      border-left-color: #ff3333; /* Rood */
+    }
+
+    .reddingsbrigade {
+      border-left-color: #ff6600; /* Oranje */
+    }
+
     /* Loader stijl */
     #loader-overlay {
       position: fixed;
@@ -46,6 +73,7 @@
       opacity: 1;
       transition: opacity 0.5s ease;
     }
+
     .spinner {
       border: 8px solid #333;
       border-top: 8px solid #eee;
@@ -54,10 +82,12 @@
       height: 60px;
       animation: spin 1s linear infinite;
     }
+
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
     #loader-overlay.hidden {
       opacity: 0;
       pointer-events: none;
@@ -79,27 +109,27 @@
 
   <h1>Diensten bij Kennemerland Surveillance</h1>
 
-  <section>
+  <section class="kmar">
     <h2>KMar (Koninklijke Marechaussee)</h2>
     <p>De KMar is verantwoordelijk voor grensbewaking, luchthavendienst en militaire politietaken. In onze game werkt de KMar op hoogbeveiligde locaties en ondersteunt de politie bij grootschalige incidenten.</p>
   </section>
 
-  <section>
+  <section class="politie">
     <h2>Politie</h2>
     <p>De Politie is de hoofdhandhaver in de stad. Ze houden toezicht, pakken criminelen op, doen verkeerscontroles en zorgen voor de veiligheid van burgers. Hun aanwezigheid is cruciaal in alle regio’s van de game.</p>
   </section>
 
-  <section>
+  <section class="ambulance">
     <h2>Ambulance</h2>
     <p>De Ambulancedienst zorgt voor medische hulp bij ongelukken, schietpartijen en rampen. Ze stabiliseren slachtoffers ter plekke en vervoeren hen naar het ziekenhuis voor verdere behandeling.</p>
   </section>
 
-  <section>
+  <section class="brandweer">
     <h2>Brandweer</h2>
     <p>De Brandweer rukt uit bij branden, voertuigincidenten en technische hulpverlening. Ze redden mensen uit benarde situaties en werken vaak samen met andere diensten tijdens crisissituaties.</p>
   </section>
 
-  <section>
+  <section class="reddingsbrigade">
     <h2>Reddingsbrigade</h2>
     <p>De Reddingsbrigade is actief rond watergebieden. Ze helpen drenkelingen, controleren veiligheid aan stranden en ondersteunen bij watersnoodrampen en evacuaties op het water.</p>
   </section>
