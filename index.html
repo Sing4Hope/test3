@@ -3,56 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kennemerland Surveillance - Home</title>
+  <title>Kennemerland Surveillance</title>
   <style>
     body {
       background: #000;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      text-align: center;
-      padding: 2rem;
+      padding: 0;
     }
     header {
-      margin-bottom: 2rem;
+      background: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .login-btn {
+    nav a {
+      color: #fff;
+      text-decoration: none;
       background: #fff;
       color: #000;
-      padding: 10px 20px;
-      font-weight: bold;
-      border: none;
+      padding: 8px 16px;
       border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    h1, h2 {
+      color: #fff;
+    }
+    .diensten {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .dienst {
+      background: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1 1 180px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 0 10px #333;
     }
     .mededeling-box {
       background: #111;
       padding: 1rem;
       border-radius: 8px;
-      max-width: 600px;
-      margin: 2rem auto;
-      box-shadow: 0 0 10px #333;
+      box-shadow: 0 0 10px #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .discord {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #5865F2;
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .discord:hover {
+      background: #4752C4;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Welkom bij Kennemerland Surveillance</h1>
-  <a class="login-btn" href="login.html">Inloggen</a>
+  <h1>Kennemerland Surveillance</h1>
+  <nav>
+    <a href="login.html">Inloggen</a>
+  </nav>
 </header>
 
-<div class="mededeling-box" id="mededelingBox" style="display: none;">
-  <h2>Laatste Mededeling</h2>
-  <p id="mededelingText"></p>
-</div>
+<main>
+  <section>
+    <h2>Wie zijn wij?</h2>
+    <p>Kennemerland Surveillance is een professionele roleplay-eenheid binnen Roblox. Wij bieden realistische simulaties van hulpdiensten met respect voor regels, structuur en samenwerking.</p>
+  </section>
+
+  <section>
+    <h2>Onze Diensten</h2>
+    <div class="diensten">
+      <div class="dienst">ANBU</div>
+      <div class="dienst">Politie</div>
+      <div class="dienst">KMar</div>
+      <div class="dienst">Reddingsbrigade</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Laatste Mededeling</h2>
+    <div class="mededeling-box" id="mededelingBox">
+      <p id="mededelingText">Er is nog geen mededeling verzonden.</p>
+    </div>
+  </section>
+
+  <section style="text-align:center;">
+    <h2>Word lid van onze community</h2>
+    <a class="discord" href="https://discord.gg/CqgYcHrg8P" target="_blank">Join onze Discord</a>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Kennemerland Surveillance
+</footer>
 
 <script>
   const mededeling = localStorage.getItem('laatsteMededeling');
   if (mededeling) {
     document.getElementById('mededelingText').textContent = mededeling;
-    document.getElementById('mededelingBox').style.display = 'block';
   }
 </script>
 
