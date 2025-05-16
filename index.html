@@ -160,10 +160,14 @@
 </footer>
 
 <script>
-  const mededeling = localStorage.getItem('laatsteMededeling');
-  if (mededeling) {
-    document.getElementById('mededelingText').textContent = mededeling;
-  }
+  fetch('mededeling.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('mededelingText').textContent = data.tekst;
+    })
+    .catch(error => {
+      console.error("Fout bij het laden van de mededeling:", error);
+    });
 </script>
 
 </body>
