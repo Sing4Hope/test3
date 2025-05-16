@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kennemerland Surveillance - Dashboard</title>
+  <title>Dashboard - Kennemerland Surveillance</title>
   <style>
     body {
       background: #000;
@@ -51,6 +51,10 @@
       border-radius: 6px;
       cursor: pointer;
     }
+    .success {
+      color: lightgreen;
+      margin-top: 1rem;
+    }
     footer {
       text-align: center;
       color: #666;
@@ -78,6 +82,7 @@
   <h2>Stuur een mededeling naar de Homepagina</h2>
   <textarea id="mededelingInput" placeholder="Typ je mededeling hier..."></textarea>
   <button onclick="verzendMededeling()">Verzend Mededeling</button>
+  <p class="success" id="successMessage" style="display:none;">✅ Mededeling verzonden!</p>
 </main>
 
 <footer>
@@ -86,11 +91,11 @@
 
 <script>
   function verzendMededeling() {
-    const tekst = document.getElementById('mededelingInput').value.trim();
-    if (tekst) {
-      localStorage.setItem('laatsteMededeling', tekst);
-      alert("Mededeling verzonden!");
-      document.getElementById('mededelingInput').value = "";
+    const input = document.getElementById('mededelingInput').value.trim();
+    if (input) {
+      localStorage.setItem('laatsteMededeling', input);
+      document.getElementById('successMessage').style.display = 'block';
+      document.getElementById('mededelingInput').value = '';
     } else {
       alert("Typ eerst een mededeling.");
     }
