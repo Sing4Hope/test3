@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kennemerland Surveillance</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
   <style>
     body {
       background-color: #111;
@@ -139,8 +139,6 @@
       <a href="overons.html">Over Ons</a>
       <a href="diensten.html">Diensten</a>
       <a href="faq.html">FAQ</a>
-      <a href="unban.html">Unban Appeal</a>
-      <a href="login.html">Login</a>
       <a href="https://discord.gg/CqgYcHrg8P" target="_blank">Discord</a>
     </div>
   </nav>
@@ -170,12 +168,14 @@
   </footer>
 
   <script>
+    // Laadanimatie bij page load
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader-overlay');
       loader.classList.add('hidden');
       setTimeout(() => loader.style.display = 'none', 500);
     });
 
+    // Laadanimatie bij klikken op links
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', (e) => {
         const url = link.getAttribute('href');
@@ -197,6 +197,7 @@
       });
     });
 
+    // Mededeling ophalen
     fetch('mededeling.json')
       .then(res => res.json())
       .then(data => {
