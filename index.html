@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kennemerland Surveillance - Home</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background: #121212;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background: #1e1e1e;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  nav button, nav a.discord-btn {
+    background: transparent;
+    color: #f0f0f0;
+    border: 2px solid #555;
+    padding: 6px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav button:hover, nav a.discord-btn:hover {
+    background: #555;
+    border-color: #999;
+  }
+  .discord-icon {
+    width: 18px;
+    height: 18px;
+    fill: #f0f0f0;
+  }
+  header button.login-btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 25px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  header button.login-btn:hover {
+    background: #e0e0e0;
+  }
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #aaa;
+    max-width: 600px;
+  }
+  footer {
+    background: #1e1e1e;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Kennemerland Surveillance</div>
+  <nav>
+    <button onclick="location.href='politie.html'">Politie</button>
+    <button onclick="location.href='brandweer.html'">Brandweer</button>
+    <button onclick="location.href='ambulance.html'">Ambulance</button>
+    <button onclick="location.href='kmar.html'">KMar</button>
+    <a class="discord-btn" href="https://discord.gg/CqgYcHrg8P" target="_blank" rel="noopener noreferrer" title="Discord invite">
+      <svg class="discord-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561 19.9 19.9 0 006.0418 3.0294.0777.0777 0 00.0842-.0276c.4666-.6398.8731-1.3162 1.226-2.0174a.076.076 0 00-.0416-.1057 13.0913 13.0913 0 01-1.872-.8997.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.119.099.246.1981.372.2924a.0766.0766 0 01-.0064.1276 12.55 12.55 0 01-1.873.8994.0766.0766 0 00-.0407.1067c.3604.7009.7669 1.3773 1.225 2.0174a.076.076 0 00.0842.028 19.8884 19.8884 0 006.0404-3.0294.081.081 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1824 0-2.1568-1.0857-2.1568-2.419 0-1.3332.9554-2.4189 2.1568-2.4189 1.2108 0 2.1757 1.0952 2.1569 2.419 0 1.3332-.946 2.4189-2.1569 2.4189z"/>
+      </svg>
+      Discord
+    </a>
+  </nav>
+  <button class="login-btn" onclick="location.href='login.html'">Login</button>
+</header>
+
+<main>
+  <h1>Welkom bij Kennemerland Surveillance</h1>
+  <p>De officiële site voor de Roblox surveillance game. Volg het nieuws, meld je aan en speel mee!</p>
+</main>
+
+<footer>
+  &copy; 2025 Kennemerland Surveillance. Alle rechten voorbehouden.
+</footer>
+
+</body>
+</html>

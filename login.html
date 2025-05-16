@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kennemerland Surveillance - Login</title>
+<style>
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  #loginBox {
+    background: #111;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #222;
+    width: 300px;
+  }
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border: none;
+    border-radius: 4px;
+  }
+  button {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover {
+    background: #ddd;
+  }
+  #errorMsg {
+    color: #f33;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="loginBox">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Gebruikersnaam" />
+  <input type="password" id="password" placeholder="Wachtwoord" />
+  <div id="errorMsg">Onjuiste gebruikersnaam of wachtwoord!</div>
+  <button onclick="checkLogin()">Inloggen</button>
+</div>
+
+<script>
+  function checkLogin() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    // Voorbeeld inloggegevens:
+    const validUsername = "admin";
+    const validPassword = "wachtwoord123";
+
+    if(username === validUsername && password === validPassword) {
+      // Login succesvol: doorsturen naar dashboard.html (maak die pagina aan!)
+      window.location.href = "dashboard.html";
+    } else {
+      // Toon foutmelding
+      document.getElementById('errorMsg').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
