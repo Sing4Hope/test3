@@ -2,20 +2,21 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kennemerland Surveillance</title>
   <link rel="icon" type="image/png" href="favicon.ico" />
   <style>
+    /* Algemene styles */
     body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #111;
       color: #eee;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      overflow-x: hidden;
     }
 
     nav {
-      background-color: #1a1a1a;
+      background: #1a1a1a;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -30,71 +31,19 @@
     nav .links a {
       color: #fff;
       text-decoration: none;
-      margin: 0 1rem;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
 
     nav .links a:hover {
-      text-decoration: underline;
+      color: #bbb;
     }
 
-    .container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h1 {
-      color: #fff;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      margin-top: 2rem;
-      color: #fff;
-    }
-
-    .diensten {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .dienst {
-      flex: 1 1 200px;
-      background: #1a1a1a;
-      border-left: 5px solid gray;
-      padding: 1rem;
-      border-radius: 4px;
-    }
-
-    .anbu { border-color: #555; }
-    .politie { border-color: lightblue; }
-    .kmar { border-color: darkblue; }
-    .ambulance { border-color: yellow; }
-    .brandweer { border-color: red; }
-    .reddingsbrigade { border-color: orange; }
-
-    .mededeling {
-      background: #222;
-      padding: 1rem;
-      margin-top: 2rem;
-      border-left: 5px solid #ccc;
-      border-radius: 5px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
+    /* Laadanimatie */
     #loader-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100vw;
       height: 100vh;
       background: #111;
@@ -124,6 +73,173 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    /* Hero sectie */
+    .hero {
+      position: relative;
+      height: 400px;
+      background: url('https://i.imgur.com/5eZfC9r.jpg') center center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: 3rem;
+      margin: 0;
+      z-index: 1;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+      position: relative;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      z-index: 1;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Intro sectie */
+    .intro {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #ccc;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255 255 255 / 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #eee;
+    }
+
+    /* Waarom kiezen sectie */
+    .why-choose {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 3rem;
+    }
+
+    .why-choose h2 {
+      margin-top: 0;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-choose ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .why-choose ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .why-choose ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #eee;
+      font-weight: bold;
+    }
+
+    /* Mededeling */
+    .mededeling {
+      background: #222;
+      padding: 1.5rem;
+      border-left: 5px solid #ccc;
+      border-radius: 6px;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      font-size: 1rem;
+      color: #ddd;
+      text-align: center;
+      min-height: 60px;
+    }
+
+    /* Discord knop */
+    .discord-btn {
+      display: block;
+      width: max-content;
+      margin: 0 auto 4rem auto;
+      background: #7289da;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(114, 137, 218, 0.6);
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .discord-btn:hover {
+      background: #5b6eae;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+    }
+
+    /* Responsive kleine schermen */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -133,79 +249,66 @@
   </div>
 
   <nav>
-    <img src="mainlogo.png" alt="Logo Kennemerland Surveillance" />
+    <img src="mainlogo.png" alt="Kennemerland Surveillance Logo" />
     <div class="links">
       <a href="index.html">Home</a>
       <a href="overons.html">Over Ons</a>
       <a href="diensten.html">Diensten</a>
       <a href="faq.html">FAQ</a>
-      <a href="https://discord.gg/CqgYcHrg8P" target="_blank">Discord</a>
+      <a href="https://discord.gg/CqgYcHrg8P" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
   </nav>
 
-  <div class="container">
-    <h1>Kennemerland Surveillance</h1>
+  <section class="hero">
+    <h1>Welkom bij Kennemerland Surveillance</h1>
+    <p>De ultieme Roblox roleplay-game met realistische hulpdiensten en spannende scenario’s.</p>
+  </section>
 
-    <p>Welkom bij Kennemerland Surveillance, de realistische Roblox roleplay-game waar veiligheid en samenwerking centraal staan. Sluit je aan bij een van onze hulpdiensten en beleef spannende scenario’s!</p>
+  <main class="container">
+    <section class="intro">
+      <p>Kennemerland Surveillance is een actief en professioneel roleplay-project in Roblox. Samen zorgen we voor veiligheid, samenwerking en realistische scenario’s waarbij jij de held kan zijn.</p>
+    </section>
 
-    <h2>Onze Diensten</h2>
-    <div class="diensten">
-      <div class="dienst politie"><strong>Politie</strong><br>Handhaaft de orde en grijpt in bij noodsituaties.</div>
-      <div class="dienst kmar"><strong>Koninklijke Marechaussee</strong><br>Beveiligt luchthavens en grensgebieden.</div>
-      <div class="dienst ambulance"><strong>Ambulance</strong><br>Biedt medische hulp bij incidenten.</div>
-      <div class="dienst brandweer"><strong>Brandweer</strong><br>Blust branden en redt mensen in gevaar.</div>
-      <div class="dienst reddingsbrigade"><strong>Reddingsbrigade</strong><br>Actief bij waterongevallen en reddingsacties.</div>
-    </div>
+    <section class="gallery" aria-label="Screenshots van de game">
+      <img src="https://i.imgur.com/zRWK2fY.jpg" alt="Politievoertuig in actie" />
+      <img src="https://i.imgur.com/ITxE0Sk.jpg" alt="Brandweer aan het werk" />
+      <img src="https://i.imgur.com/vKc8X6J.jpg" alt="Ambulance hulpverlening" />
+      <img src="https://i.imgur.com/aTFj3nB.jpg" alt="Reddingsbrigade in actie" />
+    </section>
 
-    <h2>Laatste Mededeling</h2>
-    <div class="mededeling" id="mededeling">
-      Laden...
-    </div>
-  </div>
+    <section class="why-choose">
+      <h2>Waarom kiezen voor Kennemerland Surveillance?</h2>
+      <ul>
+        <li>Professionele en toegewijde hulpdiensten</li>
+        <li>Actieve meldkamer voor snelle reacties</li>
+        <li>Realistische scenario’s voor ultieme beleving</li>
+        <li>Grote en gezellige community</li>
+      </ul>
+    </section>
+
+    <section class="mededeling" id="mededeling">
+      Mededeling laden...
+    </section>
+
+    <a class="discord-btn" href="https://discord.gg/CqgYcHrg8P" target="_blank" rel="noopener noreferrer">Join onze Discord</a>
+  </main>
 
   <footer>
-    © 2025 Kennemerland Surveillance. Alle rechten voorbehouden.
+    &copy; 2025 Kennemerland Surveillance. Alle rechten voorbehouden.
   </footer>
 
   <script>
-    // Laadanimatie bij page load
+    // Laadanimatie bij laden
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader-overlay');
       loader.classList.add('hidden');
       setTimeout(() => loader.style.display = 'none', 500);
     });
 
-    // Laadanimatie bij klikken op links
+    // Laadanimatie bij pagina wisselen
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', (e) => {
         const url = link.getAttribute('href');
         if (
           url.startsWith('http') ||
-          url.startsWith('mailto:') ||
-          url.startsWith('#') ||
-          url.startsWith('https://') ||
-          url.startsWith('//')
-        ) return;
-
-        e.preventDefault();
-        const loader = document.getElementById('loader-overlay');
-        loader.style.display = 'flex';
-        loader.classList.remove('hidden');
-        setTimeout(() => {
-          window.location.href = url;
-        }, 700);
-      });
-    });
-
-    // Mededeling ophalen
-    fetch('mededeling.json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('mededeling').textContent = data.mededeling || "Er is momenteel geen mededeling.";
-      })
-      .catch(() => {
-        document.getElementById('mededeling').textContent = "Kan mededeling niet laden.";
-      });
-  </script>
-</body>
-</html>
+          url.startsWith('mailto:')
